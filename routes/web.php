@@ -22,7 +22,7 @@ Route::group(['middleware' => ['guest']], function () {
     });
 });
 
-Route::prefix(['middleware' => ['is_autentikasi']], function () {
+Route::group(['middleware' => ['is_autentikasi']], function () {
     Route::prefix('super_admin')->group(function () {
         Route::get('/dashboard', [AppController::class, 'dashboard_admin']);
     });
