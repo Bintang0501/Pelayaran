@@ -18,5 +18,5 @@ class BukuPelaut extends Model
 
     protected $keyType = 'string';
 
-    public $primaryKey = 'id';
+    public $primaryKey = "no_buku_pelaut";
 }
