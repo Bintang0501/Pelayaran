@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('warna_rambut', 20);
             $table->string('warna_mata', 20);
             $table->string('warna_kulit', 20);
-            $table->integer('tinggi_badan', 20);
+            $table->smallInteger('tinggi_badan');
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O']);
             $table->string('foto', 100);
             $table->string('sertif_keahlian', 100);
