@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('warna_rambut', 20);
             $table->string('warna_mata', 20);
             $table->string('warna_kulit', 20);
-            $table->ineteger('tinggi_badan', 10);
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O']);
+            $table->smallInteger('tinggi_badan');
             $table->string('foto', 100);
             $table->string('sertif_keahlian', 100);
             $table->string('sertif_keterampilan', 100);
@@ -34,8 +34,8 @@ return new class extends Migration
             $table->string('surat_balasan')->nullable();
             $table->string('user_validasi_id', 100)->nullable();
             $table->tinyInteger('is_validasi')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+            // $table->softDeletes();
+            // $table->timestamps();
         });
     }
 
