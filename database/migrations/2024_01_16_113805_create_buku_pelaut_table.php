@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('buku_pelaut', function (Blueprint $table) {
             $table->string('id', 50)->primary();
             $table->string('no_buku_pelaut', 50);
-            $table->integer('kd_pelaut');
+            $table->integer('kd_pelaut', 20);
             $table->string('no_pendaftaran', 50);
             $table->string('nama', 50);
             $table->string('tempat');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('warna_rambut', 20);
             $table->string('warna_mata', 20);
             $table->string('warna_kulit', 20);
-            $table->ineteger('tinggi_badan', 10);
+            $table->integer('tinggi_badan', 20);
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O']);
             $table->string('foto', 100);
             $table->string('sertif_keahlian', 100);
