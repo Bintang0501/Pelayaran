@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('buku_pelaut', function (Blueprint $table) {
+<<<<<<< HEAD:database/migrations/2024_01_17_063629_create_buku_pelaut_table.php
             $table->string('no_buku_pelaut', 50)->primary();
             $table->integer('kd_pelaut');
+=======
+            $table->string('id', 50)->primary();
+            $table->string('no_buku_pelaut', 50);
+            $table->integer('kd_pelaut', 20);
+>>>>>>> 6faa71e163260b2112c75ba890472379e460be38:database/migrations/2024_01_17_065629_create_buku_pelaut_table.php
             $table->string('no_pendaftaran', 50);
             $table->string('nama', 50);
             $table->string('tempat');
@@ -22,8 +28,8 @@ return new class extends Migration
             $table->string('warna_rambut', 20);
             $table->string('warna_mata', 20);
             $table->string('warna_kulit', 20);
+            $table->integer('tinggi_badan', 20);
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O']);
-            $table->smallInteger('tinggi_badan');
             $table->string('foto', 100);
             $table->string('sertif_keahlian', 100);
             $table->string('sertif_keterampilan', 100);
@@ -34,8 +40,8 @@ return new class extends Migration
             $table->string('surat_balasan')->nullable();
             $table->string('user_validasi_id', 100)->nullable();
             $table->tinyInteger('is_validasi')->nullable();
-            // $table->softDeletes();
-            // $table->timestamps();
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 

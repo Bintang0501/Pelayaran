@@ -39,11 +39,25 @@
                             <i class="fa fa-reply"></i> KEMBALI
                         </a><br>
                       <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Enter email">
+                        <label>No Buku Pelaut</label>
+                        <input type="text" name="no_buku_pelaut" class="form-control" placeholder="Enter email">
                       </div>
                       <div class="form-group">
-                        <label>Email</label>
+                        <label>Kode Pelaut</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label>No Pendaftaran</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label>Nama</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label>Tempat</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email">
+                        <label>Tempat</label>
                         <input type="email" name="email" class="form-control" placeholder="Enter email">
                       </div>
                       <div class="form-group">
