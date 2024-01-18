@@ -14,8 +14,17 @@ class SuratMohonControler extends Controller
 {
     public function index()
     {
-        return DB::transaction(function(){
-            $data['surat_mohon'] = PermohonanSuratKetMasaBerlayar::get();
+        return DB::transaction(function () {
+
+            $cek_buku_pelaut = BukuPelaut::where("user_id", Auth::user()->id)->first();
+
+            if (empty($cek_buku_pelaut)) {
+                return redirect("/warga/buku_pelaut")
+                    ->with("error", "Data Buku Pelaut Anda Tidak Ditemukan. Silahkan Buat Terlebih Dahulu");
+            }
+
+            $data['surat_mohon'] = PermohonanSuratKetMasaBerlayar::where("user_id", Auth::user()->id)
+                ->first();
 
             return view('warga.surat_mohon.index', $data);
         });
@@ -23,8 +32,8 @@ class SuratMohonControler extends Controller
 
     public function create()
     {
-        return DB::transaction(function(){
-            $data['buku_pelaut'] = BukuPelaut::get();
+        return DB::transaction(function () {
+            $data['buku_pelaut'] = BukuPelaut::where("user_id", Auth::user()->id)->first();
 
             return view('warga.surat_mohon.create', $data);
         });
@@ -34,25 +43,22 @@ class SuratMohonControler extends Controller
     {
         return DB::transaction(function () use ($request) {
 
-            if ($request['file_persyaratan'])
-            {
-                $data = $request->file('file_persyaratan')->store('file_persyaratan');
-            }
-
-            PermohonanSuratKetMasaBerlayar::create([
-                'id' => Uuid::uuid4()->getHex(),
-                'user_id' => Auth::user()->id,
-                'kd_pelaut' => $request['kd_pelaut'],
-                'no_bukti_pnbp' => $request['no_bukti_pnbp'],
-                'file_persyaratan' => $request['file_persyaratan']
+            $permohonan = PermohonanSuratKetMasaBerlayar::create($request->all() + [
+                "id" => Uuid::uuid4()->getHex(),
+                "user_id" => Auth::user()->id,
+                "buku_pelaut_id" => $request->no_buku_pelaut
             ]);
+
+            $permohonan["file_persyaratan"] = $request->file("file_persyaratan")->store("file_persyaratan");
+            $permohonan->save();
+
             return redirect('/warga/surat_mohon');
         });
     }
 
     public function show($id)
     {
-        return DB::transaction(function() use ($id) {
+        return DB::transaction(function () use ($id) {
             $data['detail'] = PermohonanSuratKetMasaBerlayar::where('id', $id)->first();
 
             return view('warga.surat_mohon.detail', $data);
@@ -61,10 +67,10 @@ class SuratMohonControler extends Controller
 
     public function file_surat_balasan($id)
     {
-        return DB::transaction(function() use ($id) {
+        return DB::transaction(function () use ($id) {
             $data = PermohonanSuratKetMasaBerlayar::where('id', $id)->first();
 
-            return response()->download('storage/'.$data['surat_balasan']);
+            return response()->download('storage/' . $data['surat_balasan']);
         });
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('user_id', 50);
             $table->string('buku_pelaut_id', 50);
             $table->string('no_bukti_BNPB', 50);
-            $table->string('file_persyaratan', 50);
+            $table->string('file_persyaratan');
             $table->enum('status', [0, 1, 2, 3, 4, 5])->default(0);
             $table->text('komentar')->nullable();
             $table->string('surat_balasan')->nullable();
