@@ -6,6 +6,7 @@ use App\Http\Controllers\Petugas\BukuPelautController as PetugasBukuPelautContro
 use App\Http\Controllers\SuperAdmin\BukuPelautController as SuperAdminBukuPelautController;
 use App\Http\Controllers\SuperAdmin\PenggunaController;
 use App\Http\Controllers\Warga\BukuPelautController;
+use App\Http\Controllers\Warga\SuratMohonControler;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -69,6 +70,15 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::post('/store', [BukuPelautController::class, 'store']);
             Route::get('/show/{id}', [BukuPelautController::class, 'show']);
             Route::get('/download/{id}', [BukuPelautController::class, 'file_surat_balasan']);
+
+        });
+
+        Route::prefix('surat_mohon')->group(function(){
+            Route::get('/', [SuratMohonControler::class, 'index']);
+            Route::get('/create', [SuratMohonControler::class, 'create']);
+            Route::post('/store', [SuratMohonControler::class, 'store']);
+            Route::get('/show/{id}', [SuratMohonControler::class, 'show']);
+            Route::get('/download/{id}', [SuratMohonControler::class, 'file_surat_balasan']);
 
         });
     });

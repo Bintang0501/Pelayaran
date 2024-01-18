@@ -19,4 +19,9 @@ class PermohonanSuratKetMasaBerlayar extends Model
     protected $keyType = 'string';
 
     public $primaryKey = 'id';
+
+    public function buku_pelaut()
+    {
+        return $this->belongsTo('App\Models\BukuPelaut', 'buku_pelaut_id', 'no_buku_pelaut');
+    }
 }
