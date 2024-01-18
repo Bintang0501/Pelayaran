@@ -74,16 +74,36 @@
                                                         </a>
                                                     @endif
                                                 </td>
-                                                <td class="text-center">{{ $surat_mohon->no_bukti_BNPB }}</td>
+                                                <td class="text-center">{{ $surat_mohon->no_bukti_pnbp }}</td>
                                                 <td class="text-center">
                                                     @if ($surat_mohon->status == 0)
-                                                        <span class="badge badge-secondary">
-                                                            Belum di Validasi
-                                                        </span>
-                                                    @else
+                                                        <button class="btn btn-secondary btn-sm">
+                                                            <i class="fa fa-times"></i> Data Belum dikonfirmasi
+                                                        </button>
+                                                    @elseif ($surat_mohon->status == 1)
+                                                        <button class="btn btn-success btn-sm">
+                                                            <i class="fa fa-check"></i> Data Valid
+                                                        </button>
+                                                    @elseif ($surat_mohon->status == 2)
+                                                        <button class="btn btn-danger btn-sm">
+                                                            <i class="fa fa-times"></i> Data Tidak Valid
+                                                        </button>
+                                                    @elseif ($surat_mohon->status == 3)
+                                                        <button class="btn btn-success btn-sm">
+                                                            <i class="fa fa-check"></i> Disetujui
+                                                        </button>
+                                                    @elseif ($surat_mohon->status == 4)
+                                                        <button class="btn btn-danger btn-sm">
+                                                            <i class="fa fa-times"></i> Ditolak
+                                                        </button>
                                                     @endif
                                                 </td>
-                                                <td class="text-center"></td>
+                                                <td class="text-center">
+                                                    <a href="{{ url('/warga/surat_mohon/show/' . $surat_mohon->id) }}"
+                                                        class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-search"></i> DETAIL
+                                                    </a>
+                                                </td>
                                             </tr>
                                         @endif
                                         {{-- @foreach ($surat_mohon as $item)

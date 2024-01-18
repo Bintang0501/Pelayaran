@@ -41,32 +41,32 @@
                                         <label class="col-sm-2 col-form-label">Nama Lengkap</label>
                                         <div class="col-sm-10">
                                             <input type="text" value="{{ $buku_pelaut['users']['nama'] }}" name="nama"
-                                                class="form-control" placeholder="masukkan kode pelaut">
+                                                class="form-control" placeholder="masukkan kode pelaut" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">No. Bukti BNPB</label>
+                                        <label class="col-sm-2 col-form-label">No. Bukti PNBP</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="no_bukti_BNPB" class="form-control"
-                                                placeholder="Masukkan Nomor Bukti BNPB">
+                                            <input type="text" name="no_bukti_pnbp" class="form-control"
+                                                placeholder="Masukkan Nomor Bukti PNBP">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Tempat</label>
                                         <div class="col-sm-3">
                                             <input type="text" value="{{ $buku_pelaut['tempat'] }}" name="tempat"
-                                                class="form-control">
+                                                class="form-control" readonly>
                                         </div>
                                         <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                         <div class="col-sm-3">
                                             <input type="date" value="{{ $buku_pelaut['tgl_lahir'] }}" name="tgl_lahir"
-                                                class="form-control">
+                                                class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Alamat</label>
                                         <div class="col-sm-10">
-                                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ...">{{ $buku_pelaut['alamat'] }}</textarea>
+                                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..." readonly>{{ $buku_pelaut['alamat'] }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -74,27 +74,32 @@
                                         <div class="col-sm-10">
                                             <input type="text" value="{{ $buku_pelaut['no_buku_pelaut'] }}"
                                                 name="no_buku_pelaut" class="form-control"
-                                                placeholder="masukkan kode pelaut">
+                                                placeholder="masukkan kode pelaut" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Nama Lengkap</label>
                                         <div class="col-sm-10">
                                             <input type="text" value="{{ $buku_pelaut['nama'] }}" name="nama"
-                                                class="form-control" placeholder="masukkan kode pelaut">
+                                                class="form-control" placeholder="masukkan kode pelaut" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Kode Laut</label>
                                         <div class="col-sm-10">
                                             <input type="text" value="{{ $buku_pelaut['kd_pelaut'] }}" name="kd_pelaut"
-                                                class="form-control" placeholder="masukkan kode pelaut">
+                                                class="form-control" placeholder="masukkan kode pelaut" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">File Persyartan</label>
-                                        <div class="col-sm-10">
+                                        <label class="col-sm-2 col-form-label">File Persyaratan</label>
+                                        <div class="col-sm-4">
                                             <input type="file" name="file_persyaratan" class="form-control">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-primary" data-toogle="modal" data-target="#modal-primary">
+                                                <i class="fa fa-search"></i> Detail isi File
+                                            </button>
                                         </div>
                                     </div>
 

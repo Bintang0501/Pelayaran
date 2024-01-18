@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
 use App\Http\Controllers\Petugas\BukuPelautController as PetugasBukuPelautController;
+use App\Http\Controllers\Petugas\SuratMohonController;
 use App\Http\Controllers\SuperAdmin\BukuPelautController as SuperAdminBukuPelautController;
 use App\Http\Controllers\SuperAdmin\PenggunaController;
 use App\Http\Controllers\Warga\BukuPelautController;
@@ -55,6 +56,13 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/', [PetugasBukuPelautController::class, 'index']);
             Route::get('/show/{id}', [PetugasBukuPelautController::class, 'show']);
             Route::put('/{id}', [PetugasBukuPelautController::class, 'update']);
+
+        });
+
+        Route::prefix('surat_mohon')->group(function(){
+            Route::get('/', [SuratMohonController::class, 'index']);
+            Route::get('/show/{id}', [SuratMohonController::class, 'show']);
+            Route::put('/{id}', [SuratMohonController::class, 'update']);
 
         });
     });
