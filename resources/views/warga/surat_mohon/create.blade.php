@@ -47,7 +47,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">No. Bukti PNBP</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="no_bukti_pnbp" class="form-control"
+                                            <input type="text" name="no_bukti_BNPB" class="form-control"
                                                 placeholder="Masukkan Nomor Bukti PNBP">
                                         </div>
                                     </div>
@@ -97,7 +97,8 @@
                                             <input type="file" name="file_persyaratan" class="form-control">
                                         </div>
                                         <div class="col-sm-4">
-                                            <button class="btn btn-primary" data-toogle="modal" data-target="#modal-primary">
+                                            <button class="btn btn-primary" data-toogle="modal"
+                                                data-target="#modal-primary">
                                                 <i class="fa fa-search"></i> Detail isi File
                                             </button>
                                         </div>

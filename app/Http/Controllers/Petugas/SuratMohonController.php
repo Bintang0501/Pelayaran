@@ -13,7 +13,7 @@ class SuratMohonController extends Controller
     public function index()
     {
         return DB::transaction(function () {
-            $data['surat_mohon'] = PermohonanSuratKetMasaBerlayar::where("user_id", Auth::user()->id)->first();
+            $data['surat_mohon'] = PermohonanSuratKetMasaBerlayar::get();
 
             return view('petugas.surat_mohon.index', $data);
         });
