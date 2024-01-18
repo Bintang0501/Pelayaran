@@ -48,34 +48,44 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="text-center">1.</td>
-                                            <td>{{ $surat_mohon->buku_pelaut->users->nama }}</td>
-                                            <td class="text-center">{{ $surat_mohon->buku_pelaut->no_buku_pelaut }}</td>
-                                            <td class="text-center">
-                                                @if (empty($surat_mohon->surat_balasan))
+                                        @if (empty($surat_mohon))
+                                            <tr>
+                                                <td colspan="7" class="text-center">
                                                     <strong>
-                                                        <i>
-                                                            Belum Ada Surat Balasan
-                                                        </i>
+                                                        Silahkan Isi Data Buku Laut Terlebih Dahulu
                                                     </strong>
-                                                @else
-                                                    <a href="#" target="_blank">
-                                                        <i class="fa fa-download"></i>
-                                                    </a>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">{{ $surat_mohon->no_bukti_BNPB }}</td>
-                                            <td class="text-center">
-                                                @if ($surat_mohon->status == 0)
-                                                    <span class="badge badge-secondary">
-                                                        Belum di Validasi
-                                                    </span>
-                                                @else
-                                                @endif
-                                            </td>
-                                            <td class="text-center"></td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td class="text-center">1.</td>
+                                                <td>{{ $surat_mohon->buku_pelaut->users->nama }}</td>
+                                                <td class="text-center">{{ $surat_mohon->buku_pelaut->no_buku_pelaut }}</td>
+                                                <td class="text-center">
+                                                    @if (empty($surat_mohon->surat_balasan))
+                                                        <strong>
+                                                            <i>
+                                                                Belum Ada Surat Balasan
+                                                            </i>
+                                                        </strong>
+                                                    @else
+                                                        <a href="#" target="_blank">
+                                                            <i class="fa fa-download"></i>
+                                                        </a>
+                                                    @endif
+                                                </td>
+                                                <td class="text-center">{{ $surat_mohon->no_bukti_BNPB }}</td>
+                                                <td class="text-center">
+                                                    @if ($surat_mohon->status == 0)
+                                                        <span class="badge badge-secondary">
+                                                            Belum di Validasi
+                                                        </span>
+                                                    @else
+                                                    @endif
+                                                </td>
+                                                <td class="text-center"></td>
+                                            </tr>
+                                        @endif
                                         {{-- @foreach ($surat_mohon as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}.</td>
