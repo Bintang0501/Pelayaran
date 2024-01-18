@@ -14,7 +14,7 @@ class BukuPelautController extends Controller
 {
     public function index()
     {
-        return DB::transaction(function(){
+        return DB::transaction(function () {
             $data['buku_pelaut'] = BukuPelaut::get();
 
             return view('warga.buku_pelaut.index', $data);
@@ -30,40 +30,24 @@ class BukuPelautController extends Controller
     {
         return DB::transaction(function () use ($request) {
 
-            if ($request['foto'] && $request['sertif_keahlian'] && $request['sertif_keterampilan'] && $request['ktp'])
-            {
-                $data = $request->file('foto')->store('foto');
-                $data2 = $request->file('sertif_keahlian')->store('sertif_keahlian');
-                $data3 = $request->file('sertif_keterampilan')->store('sertif_keterampilan');
-                $data4 = $request->file('ktp')->store('ktp');
-            }
-
-            BukuPelaut::create([
-                'no_buku_pelaut' => Uuid::uuid4()->getHex(),
-                'user_id' => Auth::user()->id,
-                'kd_pelaut' => $request['kd_pelaut'],
-                'no_pendaftaran' => $request['no_pendaftaran'],
-                'nama' => $request['nama'],
-                'tempat' => $request['tempat'],
-                'tgl_lahir' => $request['tgl_lahir'],
-                'alamat' => $request['alamat'],
-                'warna_rambut' => $request['warna_rambut'],
-                'warna_mata' => $request['warna_mata'],
-                'warna_kulit' => $request['warna_kulit'],
-                'tinggi_badan' => $request['tinggi_badan'],
-                'gol_darah' => $request['gol_darah'],
-                'foto' => $data,
-                'sertif_keahlian' => $data2,
-                'sertif_keterampilan' => $data3,
-                'ktp' => $data4
+            $buku_pelaut = BukuPelaut::create($request->all() + [
+                "no_buku_pelaut" => Uuid::uuid4()->getHex(),
+                "user_id" => Auth::user()->id,
             ]);
+
+            $buku_pelaut["foto"] = $request->file("foto")->store("foto");
+            $buku_pelaut["sertif_keahlian"] = $request->file("sertif_keahlian")->store("sertif_keahlian");
+            $buku_pelaut["sertif_keterampilan"] = $request->file("sertif_keterampilan")->store("sertif_keterampilan");
+            $buku_pelaut["ktp"] = $request->file("ktp")->store("ktp");
+            $buku_pelaut->save();
+
             return redirect('/warga/buku_pelaut');
         });
     }
 
     public function show($id)
     {
-        return DB::transaction(function() use ($id) {
+        return DB::transaction(function () use ($id) {
             $data['detail'] = BukuPelaut::where('no_buku_pelaut', $id)->first();
 
             return view('warga.buku_pelaut.detail', $data);
@@ -72,10 +56,10 @@ class BukuPelautController extends Controller
 
     public function file_surat_balasan($id)
     {
-        return DB::transaction(function() use ($id) {
+        return DB::transaction(function () use ($id) {
             $data = BukuPelaut::where('no_buku_pelaut', $id)->first();
 
-            return response()->download('storage/'.$data['surat_balasan']);
+            return response()->download('storage/' . $data['surat_balasan']);
         });
     }
 }

@@ -25,10 +25,10 @@ return new class extends Migration
             $table->string('warna_kulit', 20);
             $table->smallInteger('tinggi_badan');
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O']);
-            $table->string('foto', 100);
-            $table->string('sertif_keahlian', 100);
-            $table->string('sertif_keterampilan', 100);
-            $table->string('ktp', 100);
+            $table->string('foto');
+            $table->string('sertif_keahlian');
+            $table->string('sertif_keterampilan');
+            $table->string('ktp');
             $table->enum('status', [0, 1, 2, 3, 4, 5])->default(0);
             $table->text('komentar')->nullable();
             $table->string('surat_balasan')->nullable();
