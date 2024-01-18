@@ -34,10 +34,6 @@
 				  <!-- /.card-header -->
 				  <div class="card-body">
 					<table id="example2" class="table table-bordered table-hover">
-						<a href="{{ url('/warga/buku_pelaut/create') }}" class="btn btn-primary btn-sm" style="margin-bottom: 10px">
-							<i class="fa fa-plus"></i> TAMBAH 
-						</a>
-
 					  <thead>
 					  <tr>
 						<th class="text-center">No</th>
@@ -52,7 +48,7 @@
 						@foreach ($buku_pelaut as $item)
 							<tr>
 								<td class="text-center">{{ $loop->iteration }}.</td>
-								<td>{{ $item['nama'] }}</td>
+								<td>{{ $item['users']['nama'] }}</td>
 								<td>{{ $item['kd_pelaut'] }}</td>
 								<td class="text-center">
 									@if (empty($item['surat_balasan']))
@@ -62,13 +58,13 @@
 											</i>
 										</strong>
 									@else
-										<a href="{{ url('/warga/buku_pelaut/download/'.$item->no_buku_pelaut) }}" target="_blank">
+										<a href="" target="_blank">
 											<i class="fa fa-download"></i>
 										</a>
 									@endif
 								</td>
 								<td class="text-center">
-									@if ($item['status'] == '0')
+                                    @if ($item['status'] == '0')
                                 		<button class="btn btn-secondary btn-sm">
                                     		<i class="fa fa-times"></i> Data Belum dikonfirmasi
                                 		</button>
@@ -89,9 +85,9 @@
                                	     		<i class="fa fa-times"></i> Ditolak
                                	 		</button>
                             		@endif
-								</td>
+                                </td>
 								<td class="text-center">
-									<a href="{{ url('/warga/buku_pelaut/show/'.$item['no_buku_pelaut']) }}" class="btn btn-primary btn-sm">
+									<a href="{{ url('/petugas/buku_pelaut/show/'.$item['no_buku_pelaut']) }}" class="btn btn-primary btn-sm">
 										<i class="fa fa-search"></i> DETAIL
 									</a>
 								</td>

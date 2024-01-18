@@ -70,6 +70,7 @@
 
                     </div>
                     <!-- /.card-body -->
+                  </form>
 				</div>
 				<!-- /.card -->
 		</div>

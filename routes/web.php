@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
+use App\Http\Controllers\Petugas\BukuPelautController as PetugasBukuPelautController;
+use App\Http\Controllers\SuperAdmin\BukuPelautController as SuperAdminBukuPelautController;
 use App\Http\Controllers\SuperAdmin\PenggunaController;
 use App\Http\Controllers\Warga\BukuPelautController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +30,13 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
     Route::prefix('super_admin')->group(function () {
         Route::get('/dashboard', [AppController::class, 'dashboard_admin']);
 
+        Route::prefix('buku_pelaut')->group(function(){
+            Route::get('/', [SuperAdminBukuPelautController::class, 'index']);
+            Route::get('/show/{id}', [SuperAdminBukuPelautController::class, 'show']);
+            Route::put('/update/{id}', [SuperAdminBukuPelautController::class, 'update']);
+            Route::get('/download/{id}', [SuperAdminBukuPelautController::class, 'surat_balasan']);
+        });
+
         Route::prefix('pengguna')->group(function(){
             Route::get('/', [PenggunaController::class, 'index']);
             Route::get('/create', [PenggunaController::class, 'create']);
@@ -40,6 +49,13 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
     });
     Route::prefix('petugas')->group(function () {
         Route::get('/dashboard', [AppController::class, 'dashboard_petugas']);
+
+        Route::prefix('buku_pelaut')->group(function(){
+            Route::get('/', [PetugasBukuPelautController::class, 'index']);
+            Route::get('/show/{id}', [PetugasBukuPelautController::class, 'show']);
+            Route::put('/{id}', [PetugasBukuPelautController::class, 'update']);
+
+        });
     });
     Route::prefix('kepala')->group(function () {
         Route::get('/dashboard', [AppController::class, 'dashboard_kepala']);
@@ -51,6 +67,9 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/', [BukuPelautController::class, 'index']);
             Route::get('/create', [BukuPelautController::class, 'create']);
             Route::post('/store', [BukuPelautController::class, 'store']);
+            Route::get('/show/{id}', [BukuPelautController::class, 'show']);
+            Route::get('/download/{id}', [BukuPelautController::class, 'file_surat_balasan']);
+
         });
     });
 

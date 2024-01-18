@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('alasan_turun');
             $table->string('ttd_nahkkoda');
             $table->string('ttd_pejabat_turun');
-            $table->enum('status', [0, 1, 2])->default(0);
+            $table->enum('status', [0, 1, 2, 3, 4, 5])->default(0);
             $table->text('komentar')->nullable();
             $table->string('surat_balasan')->nullable();
             $table->string('user_validasi_id', 100)->nullable();

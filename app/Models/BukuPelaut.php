@@ -19,4 +19,9 @@ class BukuPelaut extends Model
     protected $keyType = 'string';
 
     public $primaryKey = "no_buku_pelaut";
+
+    public function users()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
 }

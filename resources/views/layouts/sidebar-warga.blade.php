@@ -17,7 +17,7 @@
 					<li class="nav-header">HOME</li>
 					<li class="nav-item menu-open">
 						<a href="{{ url('/warga/dashboard') }}" class="nav-link">
-							<i class="nav-icon fas fa-tachometer-alt"></i>
+							<i class="nav-icon fas fa-home"></i>
 							<p>
 								Dashboard
 							</p>
@@ -32,7 +32,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="pages/widgets.html" class="nav-link">
+						<a href="{{ url('/warga/surat_mohon') }}" class="nav-link">
 							<i class="nav-icon fas fa-file-import"></i>
 							<p>
 							Permohonan Surat Keterangan Masa Berlayar

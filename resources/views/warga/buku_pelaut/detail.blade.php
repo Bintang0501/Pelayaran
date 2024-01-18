@@ -29,7 +29,7 @@
 			<div class="col-12">
 				<div class="card">
 				  <div class="card-header">
-					<h3 class="card-title">Tambah Data Buku Pelaut</h3>
+					<h3 class="card-title">Detail Buku Pelaut</h3>
 				  </div>
 				  <!-- /.card-header -->
                   <form action="{{ url('/warga/buku_pelaut/store') }}" method="POST" class="form-horizontal"
@@ -42,105 +42,105 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kode Pelaut</label>
                         <div class="col-sm-10">
-                            <input type="text" name="kd_pelaut" class="form-control" placeholder="masukkan kode pelaut">
+                            <input type="text" value="{{ $detail['kd_pelaut'] }}" readonly name="kd_pelaut" class="form-control" placeholder="masukkan kode pelaut">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">No Pendaftaran</label>
                         <div class="col-sm-10">
-                            <input type="text" name="no_pendaftaran" class="form-control">
+                            <input type="text" value="{{ $detail['no_pendaftaran'] }}" readonly name="no_pendaftaran" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                            <input type="text" name="nama" class="form-control">
+                            <input type="text" value="{{ $detail['nama'] }}" readonly name="nama" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tempat</label>
                         <div class="col-sm-3">
-                            <input type="text" name="tempat" class="form-control">
+                            <input type="text" value="{{ $detail['tempat'] }}" readonly name="tempat" class="form-control">
                         </div>
                         <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-sm-3">
-                            <input type="date" name="tgl_lahir" class="form-control">
+                            <input type="date" value="{{ $detail['tgl_lahir'] }}" readonly name="tgl_lahir" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-10">
-                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..." readonly>{{ $detail['kd_pelaut'] }}</textarea>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Warna Rambut</label>
                         <div class="col-sm-10">
-                            <input type="text" name="warna_rambut" class="form-control">
+                            <input type="text" value="{{ $detail['warna_rambut'] }}" readonly name="warna_rambut" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Warna Mata</label>
                         <div class="col-sm-10">
-                            <input type="text" name="warna_mata" class="form-control">
+                            <input type="text" value="{{ $detail['warna_mata'] }}" readonly name="warna_mata" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Warna Kulit</label>
                         <div class="col-sm-10">
-                            <input type="text" name="warna_kulit" class="form-control">
+                            <input type="text" value="{{ $detail['warna_kulit'] }}" readonly name="warna_kulit" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tinggi Badan</label>
                         <div class="col-sm-10">
-                            <input type="number" name="tinggi_badan" min="0" max="250" class="form-control">
+                            <input type="number" value="{{ $detail['tinggi_badan'] }}" readonly name="tinggi_badan" min="0" max="250" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Golongan Darah</label>
                         <div class="col-sm-10">
-                            <select name="gol_darah" class="form-control">
+                            <select name="gol_darah" class="form-control" disabled>
                               <option value="">~~ Silahkan Pilih ~~</option>
-                              <option value="A">A</option>
-                              <option value="B">B</option>
-                              <option value="AB">AB</option>
-                              <option value="O">O</option>
+                              <option value="A" {{ $detail['gol_darah'] == 'A' ? 'selected' : '' }}>A</option>
+                              <option value="B" {{ $detail['gol_darah'] == 'B' ? 'selected' : '' }}>B</option>
+                              <option value="AB" {{ $detail['gol_darah'] == 'AB' ? 'selected' : '' }}>AB</option>
+                              <option value="O" {{ $detail['gol_darah'] == 'O' ? 'selected' : '' }}>O</option>
                             </select>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Foto</label>
+                        <label class="col-sm-2 col-form-label">File Foto</label>
                         <div class="col-sm-10">
-                            <input type="file" name="foto" class="form-control">
+                            <a href="" class="btn btn-primary btn-sm">
+                                <i class="fa fa-download"></i> UNDUH FILE
+                            </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Sertifikat Keahlian</label>
+                        <label class="col-sm-2 col-form-label">File Sertifikat Keahlian</label>
                         <div class="col-sm-10">
-                            <input type="file" name="sertif_keahlian" class="form-control">
-                        </div>
+                          <a href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
+                              <i class="fa fa-download"></i> UNDUH FILE
+                          </a>
+                      </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Sertifikat Keterampilan</label>
+                        <label class="col-sm-2 col-form-label">File Sertifikat Keterampilan</label>
                         <div class="col-sm-10">
-                            <input type="file" name="sertif_keterampilan" class="form-control">
-                        </div>
+                          <a href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
+                              <i class="fa fa-download"></i> UNDUH FILE
+                          </a>
+                      </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">KTP</label>
+                        <label class="col-sm-2 col-form-label">File KTP</label>
                         <div class="col-sm-10">
-                            <input type="file" name="ktp" class="form-control">
-                        </div>
+                          <a href="" class="btn btn-primary btn-sm">
+                              <i class="fa fa-download"></i> UNDUH FILE
+                          </a>
                       </div>
-
-                      <button type="reset" class="btn btn-danger btn-sm">
-                        <i class="fa fa-times"></i> RESET
-                      </button>
-                      <button type="submit" class="btn btn-success btn-sm">
-                        <i class="fa fa-save"></i> SIMPAN
-                      </button>
-
+                      </div>
                     </div>
                     <!-- /.card-body -->
                   </form>

@@ -16,15 +16,23 @@
 
           <li class="nav-header">HOME</li>
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="{{ url('/petugas/dashboard') }}" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
               <p>
                 Dashboard
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="{{ url('/petugas/buku_pelaut') }}" class="nav-link">
+              <i class="nav-icon fas fa-folder"></i>
+              <p>
+              Buku Pelaut
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/petugas/surat_mohon') }}" class="nav-link">
               <i class="nav-icon fas fa-file-import"></i>
               <p>
               Permohonan Surat Keterangan Masa Berlayar
