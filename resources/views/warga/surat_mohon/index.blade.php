@@ -52,7 +52,7 @@
                                             <tr>
                                                 <td colspan="7" class="text-center">
                                                     <strong>
-                                                        Silahkan Isi Data Buku Laut Terlebih Dahulu
+                                                        Silahkan Isi Data Permohonan Terlebih Dahulu
                                                     </strong>
                                                 </td>
                                             </tr>
