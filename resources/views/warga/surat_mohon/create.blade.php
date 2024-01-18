@@ -32,105 +32,57 @@
 					<h3 class="card-title">Tambah Surat Permohonan Masa Berlayar</h3>
 				  </div>
 				  <!-- /.card-header -->
-                  <form action="{{ url('/warga/buku_pelaut/store') }}" method="POST" class="form-horizontal"
+                  <form action="{{ url('/warga/surat_mohon/store') }}" method="POST" class="form-horizontal"
                   enctype="multipart/form-data">
                     @csrf
                       <div class="card-body">
-                        <a href="{{ url('/warga/buku_pelaut') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
+                        <a href="{{ url('/warga/surat_mohon') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
                             <i class="fa fa-reply"></i> KEMBALI
                         </a><br>\
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Kode Pelaut</label>
+                        <label class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
-                            <input type="text" value="{{ $buku_pelaut['kd_pelaut'] }}" name="kd_pelaut" class="form-control" placeholder="masukkan kode pelaut">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">No Pendaftaran</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="no_pendaftaran" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nama</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nama" class="form-control">
+                            <input type="text" value="{{ $buku_pelaut['buku_pelaut']['nama'] }}" name="nama" class="form-control" placeholder="masukkan kode pelaut">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tempat</label>
                         <div class="col-sm-3">
-                            <input type="text" name="tempat" class="form-control">
+                            <input type="text" value="{{ $buku_pelaut['buku_pelaut']['tempat'] }}" name="tempat" class="form-control">
                         </div>
                         <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-sm-3">
-                            <input type="date" name="tgl_lahir" class="form-control">
+                            <input type="date" value="{{ $buku_pelaut['buku_pelaut']['tgl_lahir'] }}" name="tgl_lahir" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-10">
-                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ...">{{ $buku_pelaut['buku_pelaut']['alamat'] }}</textarea>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Rambut</label>
+                        <label class="col-sm-2 col-form-label">No Buku Pelaut</label>
                         <div class="col-sm-10">
-                            <input type="text" name="warna_rambut" class="form-control">
+                            <input type="text" value="{{ $buku_pelaut['buku_pelaut']['no_buku_pelaut'] }}" name="no_buku_pelaut" class="form-control" placeholder="masukkan kode pelaut">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Mata</label>
+                        <label class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
-                            <input type="text" name="warna_mata" class="form-control">
+                            <input type="text" value="{{ $buku_pelaut['buku_pelaut']['nama'] }}" name="nama" class="form-control" placeholder="masukkan kode pelaut">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Kulit</label>
+                        <label class="col-sm-2 col-form-label">Kode Laut</label>
                         <div class="col-sm-10">
-                            <input type="text" name="warna_kulit" class="form-control">
+                            <input type="text" value="{{ $buku_pelaut['buku_pelaut']['kd_pelaut'] }}" name="kd_pelaut" class="form-control" placeholder="masukkan kode pelaut">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tinggi Badan</label>
+                        <label class="col-sm-2 col-form-label">File Persyartan</label>
                         <div class="col-sm-10">
-                            <input type="number" name="tinggi_badan" min="0" max="250" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Golongan Darah</label>
-                        <div class="col-sm-10">
-                            <select name="gol_darah" class="form-control">
-                              <option value="">~~ Silahkan Pilih ~~</option>
-                              <option value="A">A</option>
-                              <option value="B">B</option>
-                              <option value="AB">AB</option>
-                              <option value="O">O</option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Foto</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="foto" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Sertifikat Keahlian</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="sertif_keahlian" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Sertifikat Keterampilan</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="sertif_keterampilan" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">KTP</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="ktp" class="form-control">
+                            <input type="file_persyaratan" name="foto" class="form-control">
                         </div>
                       </div>
 
