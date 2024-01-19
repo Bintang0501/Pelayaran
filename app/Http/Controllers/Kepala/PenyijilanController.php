@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Petugas;
+namespace App\Http\Controllers\Kepala;
 
 use App\Http\Controllers\Controller;
 use App\Models\PenyijilanMustering;
@@ -15,7 +15,7 @@ class PenyijilanController extends Controller
         return DB::transaction(function () {
             $data['penyijilan'] = PenyijilanMustering::get();
 
-            return view('petugas.penyijilan.index', $data);
+            return view('kepala.penyijilan.index', $data);
         });
     }
 
@@ -24,7 +24,7 @@ class PenyijilanController extends Controller
         return DB::transaction(function () use ($id) {
             $data['detail'] = PenyijilanMustering::where('id', $id)->first();
 
-            return view('petugas.penyijilan.detail', $data);
+            return view('kepala.penyijilan.detail', $data);
         });
     }
 
@@ -36,7 +36,7 @@ class PenyijilanController extends Controller
                 'user_validasi_id' => Auth::user()->id
             ]);
 
-            return redirect('/petugas/penyijilan');
+            return redirect('/kepala/penyijilan');
         });
     }
 }

@@ -40,9 +40,9 @@
                             <i class="fa fa-reply"></i> KEMBALI
                         </a><br>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">No Buku Pelaut</label>
+                        <label class="col-sm-2 col-form-label">Kode Pelaut</label>
                         <div class="col-sm-10">
-                            <input type="text" value="{{ $detail['buku_pelaut_id'] }}" readonly name="buku_pelaut_id" class="form-control" placeholder="masukkan kode pelaut">
+                            <input type="text" value="{{ $detail->buku_pelaut->kd_pelaut }}" readonly name="kd_pelaut" class="form-control" placeholder="masukkan kode pelaut">
                         </div>
                       </div>
                       <div class="form-group row">

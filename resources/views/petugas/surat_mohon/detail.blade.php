@@ -29,131 +29,35 @@
 			<div class="col-12">
 				<div class="card">
 				  <div class="card-header">
-					<h3 class="card-title">Detail Buku Pelaut</h3>
+					<h3 class="card-title">Detail Surat Permohonan</h3>
 				  </div>
 				  <!-- /.card-header -->
-                  <form action="{{ url('/petugas/buku_pelaut/'.$detail['no_buku_pelaut']) }}" method="POST" class="form-horizontal"
+                  <form action="{{ url('/petugas/surat_mohon/update/'.$detail['id']) }}" method="POST" class="form-horizontal"
                   enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                       <div class="card-body">
-                        <a href="{{ url('/petugas/buku_pelaut') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
+                        <a href="{{ url('/petugas/surat_mohon') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
                             <i class="fa fa-reply"></i> KEMBALI
                         </a><br>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nama</label>
+                        <label class="col-sm-2 col-form-label">No Buku Pelaut</label>
                         <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['users']['nama'] }}</strong>
-                            </label>
-                        </div>
-                      </div>    
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Kode Pelaut</label>
-                        <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['kd_pelaut'] }}</strong>
-                            </label>
+                            <input type="text" value="{{ $detail['buku_pelaut_id'] }}" readonly name="buku_pelaut_id" class="form-control" placeholder="masukkan kode pelaut">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">No Pendaftaran</label>
+                        <label class="col-sm-2 col-form-label">No Bukti PNBP</label>
                         <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['no_pendaftaran'] }}</strong>
-                        </label>
+                            <input type="text" value="{{ $detail['no_bukti_pnbp'] }}" readonly name="no_bukti_pnbp" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tempat</label>
+                        <label class="col-sm-2 col-form-label">File Persyaratan</label>
                         <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['tempat'] }}</strong>
-                            </label>
-                        </div>
-                        <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                        <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['tgl_lahir'] }}</strong>
-                            </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Alamat</label>
-                        <div class="col-sm-10">
-                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..." readonly>{{ $detail['alamat'] }}</textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Rambut</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['warna_rambut'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Mata</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['warna_mata'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Kulit</label>
-                        <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['warna_kulit'] }}</strong>
-                            </label>                           
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tinggi Badan</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['tinggi_badan'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Golongan Darah</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['gol_darah'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">File Foto</label>
-                        <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm">
-                                <i class="fa fa-download"></i> UNDUH FILE
-                            </a>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">File Sertifikat Keahlian</label>
-                        <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
-                                <i class="fa fa-download"></i> UNDUH FILE
-                            </a>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">File Sertifikat Keterampilan</label>
-                        <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
-                                <i class="fa fa-download"></i> UNDUH FILE
-                            </a>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">File KTP</label>
-                        <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm">
-                                <i class="fa fa-download"></i> UNDUH FILE
-                            </a>
+                          <a href="" class="btn btn-primary btn-sm">
+                              <i class="fa fa-download"></i> UNDUH FILE
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">

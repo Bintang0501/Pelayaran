@@ -22,7 +22,7 @@ class SuratMohonController extends Controller
     public function show($id)
     {
         return DB::transaction(function () use ($id) {
-            $data['detail'] = PermohonanSuratKetMasaBerlayar::where('no_surat_mohon', $id)->first();
+            $data['detail'] = PermohonanSuratKetMasaBerlayar::where('id', $id)->first();
 
             return view('petugas.surat_mohon.detail', $data);
         });

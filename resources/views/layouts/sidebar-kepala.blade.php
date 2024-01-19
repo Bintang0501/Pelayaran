@@ -16,7 +16,7 @@
 
           <li class="nav-header">HOME</li>
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
+            <a href="{{ url('/petugas/dashboard') }}" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Dashboard
@@ -24,10 +24,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-receipt"></i>
+            <a href="{{ url('/kepala/surat_mohon') }}" class="nav-link">
+              <i class="nav-icon fas fa-file-import"></i>
               <p>
-              Surat Keterangan Masa Berlayar
+              Permohonan Surat Keterangan Masa Berlayar
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/kepala/penyijilan') }}" class="nav-link">
+              <i class="nav-icon fas fa-paste"></i>
+              <p>
+              Penyijilan Mustering
               </p>
             </a>
           </li>

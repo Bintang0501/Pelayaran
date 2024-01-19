@@ -39,6 +39,14 @@
 							</p>
 						</a>
 					</li>
+					<li class="nav-item">
+						<a href="{{ url('/warga/penyijilan') }}" class="nav-link">
+							<i class="nav-icon fas fa-paste"></i>
+							<p>
+							Penyijilan
+							</p>
+						</a>
+					</li>
 				</ul>
 			</nav>
 			<!-- /.sidebar-menu -->

@@ -13,7 +13,7 @@
         @elseif (Auth::user()->role == 'petugas')
             @include('layouts.sidebar-petugas')
         @elseif (Auth::user()->role == 'kepala')
-            @include('layouts.sidebar-petugas')
+            @include('layouts.sidebar-kepala')
         @elseif (Auth::user()->role == 'warga')
             @include('layouts.sidebar-warga')
         @endif

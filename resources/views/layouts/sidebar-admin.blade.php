@@ -32,7 +32,7 @@
 			</a>
 		  </li>
 		  <li class="nav-item">
-			<a href="pages/widgets.html" class="nav-link">
+			<a href="{{ url('/super_admin/surat_mohon') }}" class="nav-link">
 			  <i class="nav-icon fas fa-file-import"></i>
 			  <p>
 				Permohonan Surat Keterangan Masa Berlayar
@@ -40,10 +40,10 @@
 			</a>
 		  </li>
 		  <li class="nav-item">
-			<a href="pages/widgets.html" class="nav-link">
-			  <i class="nav-icon fas fa-receipt"></i>
+			<a href="{{ url('/super_admin/penyijilan') }}" class="nav-link">
+			  <i class="nav-icon fas fa-users"></i>
 			  <p>
-				Surat Keterangan Masa Berlayar
+				Penyijilan Mustering
 			  </p>
 			</a>
 		  </li>
@@ -52,14 +52,6 @@
 			  <i class="nav-icon fas fa-users"></i>
 			  <p>
 				Data Pengguna
-			  </p>
-			</a>
-		  </li>
-		  <li class="nav-item">
-			<a href="pages/widgets.html" class="nav-link">
-			  <i class="nav-icon fas fa-calendar"></i>
-			  <p>
-				Jadwal Berlayar
 			  </p>
 			</a>
 		  </li>

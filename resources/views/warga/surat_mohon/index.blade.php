@@ -40,7 +40,7 @@
                                         <tr>
                                             <th class="text-center">No</th>
                                             <th>Nama</th>
-                                            <th class="text-center">No Buku</th>
+                                            <th class="text-center">Kode Pelaut</th>
                                             <th class="text-center">File Surat Balesan</th>
                                             <th class="text-center">No Bukti PNBP</th>
                                             <th class="text-center">Status</th>
@@ -60,7 +60,7 @@
                                             <tr>
                                                 <td class="text-center">1.</td>
                                                 <td>{{ $surat_mohon->buku_pelaut->users->nama }}</td>
-                                                <td class="text-center">{{ $surat_mohon->buku_pelaut->no_buku_pelaut }}</td>
+                                                <td class="text-center">{{ $surat_mohon->buku_pelaut->kd_pelaut }}</td>
                                                 <td class="text-center">
                                                     @if (empty($surat_mohon->surat_balasan))
                                                         <strong>

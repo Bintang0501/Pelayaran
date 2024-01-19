@@ -1,188 +1,160 @@
 @extends('layouts.main')
 
 @section('content')
-	
-
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-	<!-- Content Header (Page header) -->
-	<div class="content-header">
-	  <div class="container-fluid">
-		<div class="row mb-2">
-		  <div class="col-sm-12">
-			<ol class="breadcrumb float-sm-right">
-			  <li class="breadcrumb-item"><a href="#">Home</a></li>
-			  <li class="breadcrumb-item active">Dashboard v1</li>
-			</ol>
-		  </div><!-- /.col -->
-		</div><!-- /.row -->
-	  </div><!-- /.container-fluid -->
-	</div>
-	<!-- /.content-header -->
-
-	<!-- Main content -->
-	<section class="content">
-	  <div class="container-fluid">
-		<!-- Small boxes (Stat box) -->
-		<div class="row">
-			<div class="col-12">
-				<div class="card">
-				  <div class="card-header">
-					<h3 class="card-title">Detail Buku Pelaut</h3>
-				  </div>
-				  <!-- /.card-header -->
-                  <form action="{{ url('/petugas/buku_pelaut/'.$detail['no_buku_pelaut']) }}" method="POST" class="form-horizontal"
-                  enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                      <div class="card-body">
-                        <a href="{{ url('/petugas/buku_pelaut') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
-                            <i class="fa fa-reply"></i> KEMBALI
-                        </a><br>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nama</label>
-                        <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['users']['nama'] }}</strong>
-                            </label>
-                        </div>
-                      </div>    
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Kode Pelaut</label>
-                        <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['kd_pelaut'] }}</strong>
-                            </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">No Pendaftaran</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['no_pendaftaran'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tempat</label>
-                        <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['tempat'] }}</strong>
-                            </label>
-                        </div>
-                        <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                        <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['tgl_lahir'] }}</strong>
-                            </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Alamat</label>
-                        <div class="col-sm-10">
-                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..." readonly>{{ $detail['alamat'] }}</textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Rambut</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['warna_rambut'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Mata</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['warna_mata'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Warna Kulit</label>
-                        <div class="col-sm-10">
-                            <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['warna_kulit'] }}</strong>
-                            </label>                           
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tinggi Badan</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['tinggi_badan'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Golongan Darah</label>
-                        <div class="col-sm-10">
-                          <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['gol_darah'] }}</strong>
-                        </label>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">File Foto</label>
-                        <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm">
-                                <i class="fa fa-download"></i> UNDUH FILE
-                            </a>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">File Sertifikat Keahlian</label>
-                        <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
-                                <i class="fa fa-download"></i> UNDUH FILE
-                            </a>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">File Sertifikat Keterampilan</label>
-                        <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
-                                <i class="fa fa-download"></i> UNDUH FILE
-                            </a>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">File KTP</label>
-                        <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm">
-                                <i class="fa fa-download"></i> UNDUH FILE
-                            </a>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Status</label>
-                        <div class="col-sm-10">
-                            <select name="status" class="form-control">
-                              <option value="">~~ Silahkan Pilih ~~</option>
-                              <option value="1">Data Valid</option>
-                              <option value="2">Data Tidak Valid</option>
-                            </select>
-                        </div>
-                      </div>
-                      <button type="reset" class="btn btn-danger btn-sm">
-                        <i class="fa fa-times"></i> RESET
-                      </button>
-                      <button type="submit" class="btn btn-success btn-sm">
-                        <i class="fa fa-save"></i> SIMPAN
-                      </button>
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item">
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">Dashboard v1</li>
+                        </ol>
                     </div>
-                    <!-- /.card-body -->
-                  </form>
-				</div>
-				<!-- /.card -->
-		</div>
-		<!-- /.row -->
-	</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+                </div>
+            </div>
+        </div>
 
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" style="background-color: rgb(209, 217, 226)">
+                            <div class="card-header">
+                                <h3 class="card-title">Detail Data Penyijilan Mustering</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <form action="{{ url('/kepala/penyijilan/'.$detail['id']) }}" method="POST"
+                                class="form-horizontal" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div class="card-body">
+                                    <a href="{{ url('/kepala/penyijilan') }}" class="btn btn-warning"
+                                        style="margin-bottom: 10px">
+                                        <i class="fa fa-reply"></i> KEMBALI
+                                    </a><br>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Kapal</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly value="{{ $detail['kapal'] }}" name="kapal"
+                                                class="form-control" placeholder="">
+                                        </div>
+                                        <label class="col-1 col-form-label">Jabatan</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly value="{{ $detail['jabatan'] }}" name="jabatan"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Daerah Pelayaran</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly value="{{ $detail['daerah_pelayaran'] }}"
+                                                name="daerah_pelayaran" class="form-control">
+                                        </div>
+                                        <label class="col-1 col-form-label">Bendera</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly value="{{ $detail['bendera'] }}" name="bendera"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Ijazah</label>
+                                        <div class="col-sm-10">
+                                            <a href="" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-download"></i> UNDUH FILE
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Tempat Naik</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" readonly value="{{ $detail['tempat_naik'] }}"
+                                                name="tempat_naik" class="form-control" placeholder="">
+                                        </div>
+                                        <label class="col-sm-2 col-form-label">Tanggal Naik</label>
+                                        <div class="col-sm-4">
+                                            <input type="date" readonly value="{{ $detail['tgl_naik'] }}" name="tgl_naik"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Tanda Tangan Pejabat Pendaftaran
+                                            Sijil</label>
+                                        <div class="col-sm-10">
+                                            <a href="" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-download"></i> UNDUH FILE
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Status</label>
+                                        <div class="col-sm-10">
+                                            <select name="status_naik" class="form-control">
+                                                <option value="">~~ Silahkan Pilih ~~</option>
+                                                <option value="3">Disetujui</option>
+                                                <option value="4">Tidak Disetujui</option>
+                                            </select>
+                                        </div>
+                                    </div><hr>
+
+                                    @if ($detail->status_turun == 0 AND $detail->status_naik == 3)
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Tempat Turun</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" name="tempat_turun" class="form-control"
+                                                    placeholder="">
+                                            </div>
+                                            <label class="col-sm-2 col-form-label">Tanggal turun</label>
+                                            <div class="col-sm-4">
+                                                <input type="date" name="tgl_turun" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Tanda Tangan Nahkoda</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" name="ttd_nahkoda" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Tanda Tangan Pejabat Pendaftaran
+                                                Sijil</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" name="ttd_pejabat_turun" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Status</label>
+                                            <div class="col-sm-10">
+                                              <select name="status_turun" class="form-control">
+                                                <option value="">~~ Silahkan Pilih ~~</option>
+                                                <option value="1">Data Valid</option>
+                                                <option value="2">Data Tidak Valid</option>
+                                            </select>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <button type="reset" class="btn btn-danger">
+                                        <i class="fa fa-times"></i> RESET
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fa fa-check"></i> SIMPAN
+                                    </button>
+
+                                </div>
+                                <!-- /.card-body -->
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 @endsection

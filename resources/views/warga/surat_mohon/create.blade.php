@@ -47,7 +47,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">No. Bukti PNBP</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="no_bukti_BNPB" class="form-control"
+                                            <input type="text" name="no_bukti_pnbp" class="form-control"
                                                 placeholder="Masukkan Nomor Bukti PNBP">
                                         </div>
                                     </div>
@@ -97,10 +97,9 @@
                                             <input type="file" name="file_persyaratan" class="form-control">
                                         </div>
                                         <div class="col-sm-4">
-                                            <button class="btn btn-primary" data-toogle="modal"
-                                                data-target="#modal-primary">
-                                                <i class="fa fa-search"></i> Detail isi File
-                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+                                                <i class="fa fa-search"> Detail Isi File </i>
+                                              </button>
                                         </div>
                                     </div>
 
@@ -113,6 +112,40 @@
 
                                 </div>
                                 <!-- /.card-body -->
+                                <div class="modal fade" id="modal-default">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Daftar File Persyaratan Surat Permohonan</h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <h2>Harap di Perhatikan dengan teliti!!!</h2><br>
+
+                                          <strong>**Harap satukan File di bawah ini menjadi 1 PDF</strong><br><hr>
+                                            <p>
+                                                1. Buku Pelaut Asli <br>
+                                                2. Foto Copy Buku Pelaut <br>
+                                                3. Foto Copy BST <br>
+                                                4. Foto Copy Sertifikat COC/COP Terakhir <br>
+                                                5. Foto Copy Buku Saku untuk Cadet <br>
+                                                6. Foto Copy Surat Persetujuan Praktek Berlayar untuk Cadet <br>
+                                                7. Foto Copy Condite Report untuk Cadet <br>
+                                                8. Foto Copy KTP/Kartu Keluarga <br>
+                                                9. Foto Copy bukti pembayaran/kwitansi PNBP <br>
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+                                  <!-- /.modal -->
                             </form>
                         </div>
                         <!-- /.card -->
@@ -123,4 +156,23 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <!-- Button trigger modal -->
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection

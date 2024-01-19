@@ -2,11 +2,16 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
+use App\Http\Controllers\Kepala\PenyijilanController as KepalaPenyijilanController;
+use App\Http\Controllers\Kepala\SuratMohonController as KepalaSuratMohonController;
 use App\Http\Controllers\Petugas\BukuPelautController as PetugasBukuPelautController;
+use App\Http\Controllers\Petugas\PenyijilanController as PetugasPenyijilanController;
 use App\Http\Controllers\Petugas\SuratMohonController;
 use App\Http\Controllers\SuperAdmin\BukuPelautController as SuperAdminBukuPelautController;
 use App\Http\Controllers\SuperAdmin\PenggunaController;
+use App\Http\Controllers\SuperAdmin\SuratMohonController as SuperAdminSuratMohonController;
 use App\Http\Controllers\Warga\BukuPelautController;
+use App\Http\Controllers\Warga\PenyijilanController;
 use App\Http\Controllers\Warga\SuratMohonControler;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +44,13 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/download/{id}', [SuperAdminBukuPelautController::class, 'surat_balasan']);
         });
 
+        Route::prefix('surat_mohon')->group(function(){
+            Route::get('/', [SuperAdminSuratMohonController::class, 'index']);
+            Route::get('/show/{id}', [SuperAdminSuratMohonController::class, 'show']);
+            Route::put('/{id}', [SuperAdminSuratMohonController::class, 'update']);
+
+        });
+
         Route::prefix('pengguna')->group(function(){
             Route::get('/', [PenggunaController::class, 'index']);
             Route::get('/create', [PenggunaController::class, 'create']);
@@ -55,19 +67,40 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
         Route::prefix('buku_pelaut')->group(function(){
             Route::get('/', [PetugasBukuPelautController::class, 'index']);
             Route::get('/show/{id}', [PetugasBukuPelautController::class, 'show']);
-            Route::put('/{id}', [PetugasBukuPelautController::class, 'update']);
+            Route::put('/update/{id}', [PetugasBukuPelautController::class, 'update']);
 
         });
 
         Route::prefix('surat_mohon')->group(function(){
             Route::get('/', [SuratMohonController::class, 'index']);
             Route::get('/show/{id}', [SuratMohonController::class, 'show']);
-            Route::put('/{id}', [SuratMohonController::class, 'update']);
+            Route::put('/update/{id}', [SuratMohonController::class, 'update']);
+
+        });
+
+        Route::prefix('penyijilan')->group(function(){
+            Route::get('/', [PetugasPenyijilanController::class, 'index']);
+            Route::get('/show/{id}', [PetugasPenyijilanController::class, 'show']);
+            Route::put('/{id}', [PetugasPenyijilanController::class, 'update']);
 
         });
     });
     Route::prefix('kepala')->group(function () {
         Route::get('/dashboard', [AppController::class, 'dashboard_kepala']);
+        
+        Route::prefix('surat_mohon')->group(function(){
+            Route::get('/', [KepalaSuratMohonController::class, 'index']);
+            Route::get('/show/{id}', [KepalaSuratMohonController::class, 'show']);
+            Route::put('/update/{id}', [KepalaSuratMohonController::class, 'update']);
+
+        });
+
+        Route::prefix('penyijilan')->group(function(){
+            Route::get('/', [KepalaPenyijilanController::class, 'index']);
+            Route::get('/show/{id}', [KepalaPenyijilanController::class, 'show']);
+            Route::put('/{id}', [KepalaPenyijilanController::class, 'update']);
+
+        });
     });
     Route::prefix('warga')->group(function () {
         Route::get('/dashboard', [AppController::class, 'dashboard_warga']);
@@ -87,6 +120,15 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::post('/store', [SuratMohonControler::class, 'store']);
             Route::get('/show/{id}', [SuratMohonControler::class, 'show']);
             Route::get('/download/{id}', [SuratMohonControler::class, 'file_surat_balasan']);
+
+        });
+
+        Route::prefix('penyijilan')->group(function(){
+            Route::get('/', [PenyijilanController::class, 'index']);
+            Route::get('/create', [PenyijilanController::class, 'create']);
+            Route::post('/store', [PenyijilanController::class, 'store']);
+            Route::get('/show/{id}', [PenyijilanController::class, 'show']);
+            Route::get('/download/{id}', [PenyijilanController::class, 'file_surat_balasan']);
 
         });
     });

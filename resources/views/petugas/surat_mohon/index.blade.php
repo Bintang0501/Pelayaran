@@ -45,7 +45,14 @@
                                     <tbody>
                                         @foreach ($surat_mohon as $item)
                                             <tr>
-                                                <td class="text-center">1.</td>
+                                                @if ($item->status == 1)
+                                                    <td colspan="7" class="text-center">
+                                                        <strong>
+                                                            <i> Belum Ada Data Masuk</i>
+                                                        </strong>
+                                                    </td>
+                                                @elseif ($item->status == 0)
+                                                <td class="text-center">{{ $loop->iteration }}.</td>
                                                 <td>{{ $item->buku_pelaut->users->nama }}</td>
                                                 <td class="text-center">{{ $item->buku_pelaut->no_buku_pelaut }}</td>
                                                 <td class="text-center">
@@ -61,7 +68,7 @@
                                                         </a>
                                                     @endif
                                                 </td>
-                                                <td class="text-center">{{ $item->no_bukti_BNPB }}</td>
+                                                <td class="text-center">{{ $item->no_bukti_pnbp }}</td>
                                                 <td class="text-center">
                                                     @if ($item->status == 0)
                                                         <button class="btn btn-secondary btn-sm">
@@ -91,6 +98,7 @@
                                                         <i class="fa fa-search"></i> DETAIL
                                                     </a>
                                                 </td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                     </tbody>
