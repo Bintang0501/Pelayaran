@@ -32,7 +32,7 @@
 					<h3 class="card-title">Detail Buku Pelaut</h3>
 				  </div>
 				  <!-- /.card-header -->
-                  <form action="{{ url('/petugas/buku_pelaut/'.$detail['no_buku_pelaut']) }}" method="POST" class="form-horizontal"
+                  <form action="{{ url('/petugas/buku_pelaut/update/'.$detail['no_buku_pelaut']) }}" method="POST" class="form-horizontal"
                   enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

@@ -9,6 +9,7 @@ use App\Http\Controllers\Petugas\PenyijilanController as PetugasPenyijilanContro
 use App\Http\Controllers\Petugas\SuratMohonController;
 use App\Http\Controllers\SuperAdmin\BukuPelautController as SuperAdminBukuPelautController;
 use App\Http\Controllers\SuperAdmin\PenggunaController;
+use App\Http\Controllers\SuperAdmin\PenyijilanController as SuperAdminPenyijilanController;
 use App\Http\Controllers\SuperAdmin\SuratMohonController as SuperAdminSuratMohonController;
 use App\Http\Controllers\Warga\BukuPelautController;
 use App\Http\Controllers\Warga\PenyijilanController;
@@ -41,7 +42,7 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/', [SuperAdminBukuPelautController::class, 'index']);
             Route::get('/show/{id}', [SuperAdminBukuPelautController::class, 'show']);
             Route::put('/update/{id}', [SuperAdminBukuPelautController::class, 'update']);
-            Route::get('/download/{id}', [SuperAdminBukuPelautController::class, 'surat_balasan']);
+            Route::get('/surat_balasan/{id}', [SuperAdminBukuPelautController::class, 'surat_balasan']);
         });
 
         Route::prefix('surat_mohon')->group(function(){
@@ -58,6 +59,12 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/edit/{id}', [PenggunaController::class, 'edit']);
             Route::put('/update/{id}', [PenggunaController::class, 'update']);
             Route::delete('/destroy/{id}', [PenggunaController::class, 'destroy']);
+        });
+
+        Route::prefix('penyijilan')->group(function(){
+            Route::get('/', [SuperAdminPenyijilanController::class, 'index']);
+            Route::get('/show/{id}', [SuperAdminPenyijilanController::class, 'show']);
+            Route::put('/{id}', [SuperAdminPenyijilanController::class, 'update']);
         });
 
     });

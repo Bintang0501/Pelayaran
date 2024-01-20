@@ -37,7 +37,7 @@
                     @csrf
                     @method('PUT')
                       <div class="card-body">
-                        <a href="{{ url('/admin/buku_pelaut') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
+                        <a href="{{ url('/super_admin/buku_pelaut') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
                             <i class="fa fa-reply"></i> KEMBALI
                         </a><br>
                       <div class="form-group row">
@@ -178,6 +178,9 @@
                             @endif
                         </div>
                       </div>
+                      @if (!empty($detail->surat_balasan))
+                      
+                      @else
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Unggah Surat Balasan</label>
                         <div class="col-sm-10">
@@ -190,6 +193,7 @@
                       <button type="submit" class="btn btn-success btn-sm">
                         <i class="fa fa-save"></i> SIMPAN
                       </button>
+                      @endif
                     </div>
                     <!-- /.card-body -->
                   </form>

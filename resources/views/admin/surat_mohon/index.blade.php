@@ -45,7 +45,7 @@
                                     <tbody>
                                         @foreach ($surat_mohon as $item)
                                             <tr>
-                                                <td class="text-center">1.</td>
+                                                <td class="text-center">{{ $loop->iteration }}.</td>
                                                 <td>{{ $item->buku_pelaut->users->nama }}</td>
                                                 <td class="text-center">{{ $item->buku_pelaut->no_buku_pelaut }}</td>
                                                 <td class="text-center">
