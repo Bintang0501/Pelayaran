@@ -59,7 +59,7 @@
                                         @else
                                             <tr>
                                                 <td class="text-center">1.</td>
-                                                <td>{{ $surat_mohon->buku_pelaut->users->nama }}</td>
+                                                <td>{{ $surat_mohon->buku_pelaut->nama }}</td>
                                                 <td class="text-center">{{ $surat_mohon->buku_pelaut->kd_pelaut }}</td>
                                                 <td class="text-center">
                                                     @if (empty($surat_mohon->surat_balasan))

@@ -39,7 +39,6 @@
 						<th class="text-center">No</th>
 						<th>Nama</th>
 						<th>Kode Pelaut</th>
-						<th>File Surat Balesan</th>
 						<th class="text-center">Status</th>
 						<th class="text-center">Aksi</th>
 					  </tr>
@@ -50,19 +49,6 @@
 								<td class="text-center">{{ $loop->iteration }}.</td>
 								<td>{{ $item['users']['nama'] }}</td>
 								<td>{{ $item['kd_pelaut'] }}</td>
-								<td class="text-center">
-									@if (empty($item['surat_balasan']))
-										<strong>
-											<i>
-												Belum ada Surat Balasan
-											</i>
-										</strong>
-									@else
-										<a href="{{ url('/super_admin/buku_pelaut/surat_balasan/'.$item->no_buku_pelaut) }}" target="_blank">
-											<i class="fa fa-download"></i>
-										</a>
-									@endif
-								</td>
 								<td class="text-center">
                                     @if ($item['status'] == '0')
                                 		<button class="btn btn-secondary btn-sm">

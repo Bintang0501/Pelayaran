@@ -15,12 +15,13 @@
   <link rel="stylesheet" href="{{ url('') }}/assets/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div class="login-box" style="margin-right: 100px">
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
+  <div class="card card-outline card-primary" style="width: 500px">
     <div class="card-header text-center">
+      <img src="{{ url('') }}/assets/foto/a.jpg" alt=""><br>
       <a class="h1"><b>SIP</b><br></a>
-      <p>(Sistem Informasi Pelayaran)</p>
+      <p>(Sistem Informasi Pelayaran KSOP Kelas 2 Cirebon)</p>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -45,7 +46,7 @@
         </div>
         <div class="row">
           <!-- /.col -->
-          <div class="col-6" style="margin-left: 80px">
+          <div class="col-6" style="margin-left: 120px">
             <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
           <!-- /.col -->
