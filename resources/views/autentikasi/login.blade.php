@@ -21,7 +21,7 @@
     <div class="card-header text-center">
       <img src="{{ url('') }}/assets/foto/a.jpg" alt=""><br>
       <a class="h1"><b>SIP</b><br></a>
-      <p>(Sistem Informasi Pelayaran KSOP Kelas 2 Cirebon)</p>
+      <p>(Sistem Informasi Pelayaran KSOP Kelas II Cirebon)</p>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
