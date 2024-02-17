@@ -112,7 +112,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File Foto</label>
                         <div class="col-sm-10">
-                            <a href="" class="btn btn-primary btn-sm">
+                            <a target="_blank" href="{{ url('/download/foto/'.$detail->no_buku_pelaut) }}" class="btn btn-primary btn-sm">
                                 <i class="fa fa-download"></i> UNDUH FILE
                             </a>
                         </div>
@@ -120,7 +120,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File Sertifikat Keahlian</label>
                         <div class="col-sm-10">
-                          <a href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
+                          <a href="{{ url('/download/sertif_ahli/'.$detail->no_buku_pelaut) }}" class="btn btn-primary btn-sm" style="margin-top: 10px">
                               <i class="fa fa-download"></i> UNDUH FILE
                           </a>
                       </div>
@@ -128,7 +128,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File Sertifikat Keterampilan</label>
                         <div class="col-sm-10">
-                          <a href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
+                          <a href="{{ url('/download/sertif_terampil/'.$detail->no_buku_pelaut) }}" class="btn btn-primary btn-sm" style="margin-top: 10px">
                               <i class="fa fa-download"></i> UNDUH FILE
                           </a>
                       </div>
@@ -136,7 +136,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File KTP</label>
                         <div class="col-sm-10">
-                          <a href="" class="btn btn-primary btn-sm">
+                          <a href="{{ url('/download/ktp/'.$detail->no_buku_pelaut) }}" class="btn btn-primary btn-sm">
                               <i class="fa fa-download"></i> UNDUH FILE
                           </a>
                       </div>
