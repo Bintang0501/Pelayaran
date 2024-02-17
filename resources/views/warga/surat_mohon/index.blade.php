@@ -69,7 +69,7 @@
                                                             </i>
                                                         </strong>
                                                     @else
-                                                        <a href="#" target="_blank">
+                                                        <a href="{{ url('/warga/surat_mohon/download/'.$surat_mohon->id) }}" target="_blank">
                                                             <i class="fa fa-download"></i>
                                                         </a>
                                                     @endif

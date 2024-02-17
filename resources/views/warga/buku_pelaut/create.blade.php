@@ -38,8 +38,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Kode Pelaut</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="kd_pelaut" class="form-control"
-                                                placeholder="masukkan kode pelaut">
+                                            <input type="text" name="kd_pelaut" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -67,7 +66,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Alamat</label>
                                         <div class="col-sm-10">
-                                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                            <textarea name="alamat" class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">

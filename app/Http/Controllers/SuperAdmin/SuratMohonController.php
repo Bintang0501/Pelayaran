@@ -42,4 +42,13 @@ class SuratMohonController extends Controller
             return redirect('/super_admin/surat_mohon');
         });
     }
+
+    public function file_surat_balasan($id)
+    {
+        return DB::transaction(function () use ($id) {
+            $data = PermohonanSuratKetMasaBerlayar::where('id', $id)->first();
+
+            return response()->download('storage/' . $data['surat_balasan']);
+        });
+    }
 }

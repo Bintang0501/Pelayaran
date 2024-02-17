@@ -39,4 +39,13 @@ class PenyijilanController extends Controller
             return redirect('/admin/penyijilan');
         });
     }
+
+    public function file_surat_balasan($id)
+    {
+        return DB::transaction(function () use ($id) {
+            $data = PenyijilanMustering::where('id', $id)->first();
+
+            return response()->download('storage/' . $data['surat_balasan']);
+        });
+    }
 }

@@ -68,7 +68,7 @@
                                                             </i>
                                                         </strong>
                                                     @else
-                                                        <a href="{{ url('/warga/penyijilan/download/' . $item->no_penyijilan) }}"
+                                                        <a href="{{ url('/warga/penyijilan/download/'. $item->id) }}"
                                                             target="_blank">
                                                             <i class="fa fa-download"></i>
                                                         </a>
