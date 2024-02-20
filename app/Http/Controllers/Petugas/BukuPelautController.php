@@ -38,4 +38,40 @@ class BukuPelautController extends Controller
             return redirect('/petugas/buku_pelaut');
         });
     }
+
+    public function unduh_foto($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $buku_pelaut = BukuPelaut::where("no_buku_pelaut", $id)->first();
+
+            return response()->download("storage/" . $buku_pelaut['foto']);
+        });
+    }
+
+    public function unduh_sertif_keahlian($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $buku_pelaut = BukuPelaut::where("no_buku_pelaut", $id)->first();
+
+            return response()->download("storage/" . $buku_pelaut['sertif_keahlian']);
+        });
+    }
+
+    public function unduh_sertif_keterampilan($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $buku_pelaut = BukuPelaut::where("no_buku_pelaut", $id)->first();
+
+            return response()->download("storage/" . $buku_pelaut['sertif_keterampilan']);
+        });
+    }
+
+    public function unduh_file_ktp($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $buku_pelaut = BukuPelaut::where("no_buku_pelaut", $id)->first();
+
+            return response()->download("storage/" . $buku_pelaut['ktp']);
+        });
+    }
 }

@@ -24,4 +24,9 @@ class PenyijilanMustering extends Model
     {
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
+
+    public function buku()
+    {
+        return $this->belongsTo('App\Models\BukuPelaut', 'user_id', 'user_id');
+    }
 }

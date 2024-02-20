@@ -28,6 +28,42 @@ class PenyijilanController extends Controller
         });
     }
 
+    public function unduh_foto($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $file = PenyijilanMustering::where('id', $id)->first(); 
+
+            return response()->download("storage/" . $file['buku']['foto']);
+        });
+    }
+
+    public function unduh_sertif_keahlian($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $file = PenyijilanMustering::where('id', $id)->first(); 
+
+            return response()->download("storage/" . $file['buku']['sertif_keahlian']);
+        });
+    }
+
+    public function unduh_sertif_keterampilan($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $file = PenyijilanMustering::where('id', $id)->first(); 
+
+            return response()->download("storage/" . $file['buku']['sertif_keterampilan']);
+        });
+    }
+
+    public function unduh_ktp($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $file = PenyijilanMustering::where('id', $id)->first(); 
+
+            return response()->download("storage/" . $file['buku']['ktp']);
+        });
+    }
+
     public function update(Request $request, $id)
     {
         return DB::transaction(function () use ($request, $id) {
@@ -36,7 +72,7 @@ class PenyijilanController extends Controller
                 'is_validasi' => Auth::user()->id
             ]);
 
-            return redirect('/admin/penyijilan');
+            return redirect('/super_admin/penyijilan');
         });
     }
 

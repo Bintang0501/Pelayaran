@@ -64,7 +64,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Ijazah</label>
                                         <div class="col-sm-10">
-                                            <a href="" class="btn btn-primary btn-sm">
+                                            <a href="{{ url('/petugas/penyijilan/unduh/'. $detail->id . '/ijazah') }}" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-download"></i> UNDUH FILE
                                             </a>
                                         </div>
@@ -85,7 +85,7 @@
                                         <label class="col-sm-2 col-form-label">Tanda Tangan Pejabat Pendaftaran
                                             Sijil</label>
                                         <div class="col-sm-10">
-                                            <a href="" class="btn btn-primary btn-sm">
+                                            <a href="{{ url('/petugas/penyijilan/unduh/'. $detail->id . '/ttd') }}" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-download"></i> UNDUH FILE
                                             </a>
                                         </div>

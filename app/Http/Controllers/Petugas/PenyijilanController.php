@@ -28,6 +28,24 @@ class PenyijilanController extends Controller
         });
     }
 
+    public function unduh_ijazah($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $file = PenyijilanMustering::where('id', $id)->first(); 
+
+            return response()->download("storage/" . $file['ijazah']);
+        });
+    }
+
+    public function unduh_ttd($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $file = PenyijilanMustering::where('id', $id)->first(); 
+
+            return response()->download("storage/" . $file['ttd_pejabat_naik']);
+        });
+    }
+
     public function update(Request $request, $id)
     {
         return DB::transaction(function () use ($request, $id) {

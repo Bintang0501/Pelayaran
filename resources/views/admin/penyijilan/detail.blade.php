@@ -32,12 +32,12 @@
 					<h3 class="card-title">Detail Buku Pelaut</h3>
 				  </div>
 				  <!-- /.card-header -->
-                  <form action="{{ url('/petugas/buku_pelaut/'.$detail['no_buku_pelaut']) }}" method="POST" class="form-horizontal"
+                  <form action="{{ url('/super_admin/penyijilan/'.$detail['id']) }}" method="POST" class="form-horizontal"
                   enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                       <div class="card-body">
-                        <a href="{{ url('/petugas/buku_pelaut') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
+                        <a href="{{ url('/super_admin/penyijilan') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px">
                             <i class="fa fa-reply"></i> KEMBALI
                         </a><br>
                       <div class="form-group row">
@@ -52,7 +52,7 @@
                         <label class="col-sm-2 col-form-label">Kode Pelaut</label>
                         <div class="col-sm-10">
                             <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['kd_pelaut'] }}</strong>
+                                <strong>{{ $detail['buku']['kd_pelaut'] }}</strong>
                             </label>
                         </div>
                       </div>
@@ -60,7 +60,7 @@
                         <label class="col-sm-2 col-form-label">No Pendaftaran</label>
                         <div class="col-sm-10">
                           <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['no_pendaftaran'] }}</strong>
+                            <strong>{{ $detail['buku']['no_pendaftaran'] }}</strong>
                         </label>
                         </div>
                       </div>
@@ -68,27 +68,27 @@
                         <label class="col-sm-2 col-form-label">Tempat</label>
                         <div class="col-sm-10">
                             <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['tempat'] }}</strong>
+                                <strong>{{ $detail['buku']['tempat'] }}</strong>
                             </label>
                         </div>
                         <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-sm-10">
                             <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['tgl_lahir'] }}</strong>
+                                <strong>{{ $detail['buku']['tgl_lahir'] }}</strong>
                             </label>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-10">
-                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..." readonly>{{ $detail['alamat'] }}</textarea>
+                            <textarea name="alamat" class="form-control" rows="3" placeholder="Enter ..." readonly>{{ $detail['buku']['alamat'] }}</textarea>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Warna Rambut</label>
                         <div class="col-sm-10">
                           <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['warna_rambut'] }}</strong>
+                            <strong>{{ $detail['buku']['warna_rambut'] }}</strong>
                         </label>
                         </div>
                       </div>
@@ -96,7 +96,7 @@
                         <label class="col-sm-2 col-form-label">Warna Mata</label>
                         <div class="col-sm-10">
                           <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['warna_mata'] }}</strong>
+                            <strong>{{ $detail['buku']['warna_mata'] }}</strong>
                         </label>
                         </div>
                       </div>
@@ -104,7 +104,7 @@
                         <label class="col-sm-2 col-form-label">Warna Kulit</label>
                         <div class="col-sm-10">
                             <label class="col-sm-2 col-form-label">
-                                <strong>{{ $detail['warna_kulit'] }}</strong>
+                                <strong>{{ $detail['buku']['warna_kulit'] }}</strong>
                             </label>                           
                         </div>
                       </div>
@@ -112,7 +112,7 @@
                         <label class="col-sm-2 col-form-label">Tinggi Badan</label>
                         <div class="col-sm-10">
                           <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['tinggi_badan'] }}</strong>
+                            <strong>{{ $detail['buku']['tinggi_badan'] }}</strong>
                         </label>
                         </div>
                       </div>
@@ -120,14 +120,14 @@
                         <label class="col-sm-2 col-form-label">Golongan Darah</label>
                         <div class="col-sm-10">
                           <label class="col-sm-2 col-form-label">
-                            <strong>{{ $detail['gol_darah'] }}</strong>
+                            <strong>{{ $detail['buku']['gol_darah'] }}</strong>
                         </label>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File Foto</label>
                         <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm">
+                            <a target="_blank" href="{{ url('/super_admin/penyijilan/unduh/' . $detail['id'] . '/foto') }}" class="btn btn-primary btn-sm">
                                 <i class="fa fa-download"></i> UNDUH FILE
                             </a>
                         </div>
@@ -135,7 +135,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File Sertifikat Keahlian</label>
                         <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
+                            <a target="_blank" href="{{ url('/super_admin/penyijilan/unduh/' . $detail['id'] . '/sertif-keahlian') }}" class="btn btn-primary btn-sm" style="margin-top: 10px">
                                 <i class="fa fa-download"></i> UNDUH FILE
                             </a>
                         </div>
@@ -143,7 +143,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File Sertifikat Keterampilan</label>
                         <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm" style="margin-top: 10px">
+                            <a target="_blank" href="{{ url('/super_admin/penyijilan/unduh/' . $detail['id'] . '/sertif-keterampilan') }}" class="btn btn-primary btn-sm" style="margin-top: 10px">
                                 <i class="fa fa-download"></i> UNDUH FILE
                             </a>
                         </div>
@@ -151,7 +151,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File KTP</label>
                         <div class="col-sm-10">
-                            <a target="_blank" href="" class="btn btn-primary btn-sm">
+                            <a target="_blank" href="{{ url('/super_admin/penyijilan/unduh/' . $detail['id'] . '/ktp') }}" class="btn btn-primary btn-sm">
                                 <i class="fa fa-download"></i> UNDUH FILE
                             </a>
                         </div>

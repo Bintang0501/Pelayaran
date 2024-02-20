@@ -49,7 +49,9 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/show/{id}', [SuperAdminSuratMohonController::class, 'show']);
             Route::put('/{id}', [SuperAdminSuratMohonController::class, 'update']);
             Route::get('/download/{id}', [SuperAdminSuratMohonController::class, 'file_surat_balasan']);
-
+            Route::prefix("unduh")->group(function() {
+                Route::get("/{id}/file-persyaratan", [SuperAdminSuratMohonController::class, "unduh_file_persyaratan"]);
+            });
         });
 
         Route::prefix('pengguna')->group(function(){
@@ -66,6 +68,12 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/show/{id}', [SuperAdminPenyijilanController::class, 'show']);
             Route::put('/{id}', [SuperAdminPenyijilanController::class, 'update']);
             Route::get('/download/{id}', [SuperAdminPenyijilanController::class, 'file_surat_balasan']);
+            Route::prefix("unduh")->group(function() {
+                Route::get("/{id}/foto", [SuperAdminPenyijilanController::class, "unduh_foto"]);
+                Route::get("/{id}/sertif-keahlian", [SuperAdminPenyijilanController::class, "unduh_sertif_keahlian"]);
+                Route::get("/{id}/sertif-keterampilan", [SuperAdminPenyijilanController::class, "unduh_sertif_keterampilan"]);
+                Route::get("/{id}/ktp", [SuperAdminPenyijilanController::class, "unduh_ktp"]);
+            });
         });
 
     });
@@ -75,6 +83,12 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
         Route::prefix('buku_pelaut')->group(function(){
             Route::get('/', [PetugasBukuPelautController::class, 'index']);
             Route::get('/show/{id}', [PetugasBukuPelautController::class, 'show']);
+            Route::prefix("unduh")->group(function() {
+                Route::get("{id}/foto", [PetugasBukuPelautController::class, "unduh_foto"]);
+                Route::get("{id}/sertif_keahlian", [PetugasBukuPelautController::class, "unduh_sertif_keahlian"]);
+                Route::get("{id}/sertif_keterampilan", [PetugasBukuPelautController::class, "unduh_sertif_keterampilan"]);
+                Route::get("{id}/file_ktp", [PetugasBukuPelautController::class, "unduh_file_ktp"]);
+            });
             Route::put('/update/{id}', [PetugasBukuPelautController::class, 'update']);
 
         });
@@ -84,7 +98,9 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/show/{id}', [SuratMohonController::class, 'show']);
             Route::put('/update/{id}', [SuratMohonController::class, 'update']);
             Route::get('/download/{id}', [SuratMohonController::class, 'file_surat_balasan']);
-
+            Route::prefix("unduh")->group(function() {
+                Route::get("/{id}/file-persyaratan", [SuratMohonController::class, "unduh_file_persyaratan"]);
+            });
         });
 
         Route::prefix('penyijilan')->group(function(){
@@ -92,7 +108,10 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/show/{id}', [PetugasPenyijilanController::class, 'show']);
             Route::put('/{id}', [PetugasPenyijilanController::class, 'update']);
             Route::get('/download/{id}', [PetugasPenyijilanController::class, 'file_surat_balasan']);
-
+            Route::prefix("unduh")->group(function() {
+                Route::get("/{id}/ijazah", [PetugasPenyijilanController::class, "unduh_ijazah"]);
+                Route::get("/{id}/ttd", [PetugasPenyijilanController::class, "unduh_ttd"]);
+            });
         });
     });
     Route::prefix('kepala')->group(function () {
@@ -111,7 +130,10 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/show/{id}', [KepalaPenyijilanController::class, 'show']);
             Route::put('/{id}', [KepalaPenyijilanController::class, 'update']);
             Route::get('/download/{id}', [KepalaPenyijilanController::class, 'file_surat_balasan']);
-
+            Route::prefix("unduh")->group(function() {
+                Route::get("/{id}/ijazah", [KepalaPenyijilanController::class, "unduh_ijazah"]);
+                Route::get("/{id}/ttd", [KepalaPenyijilanController::class, "unduh_ttd"]);
+            });
         });
     });
     Route::prefix('warga')->group(function () {

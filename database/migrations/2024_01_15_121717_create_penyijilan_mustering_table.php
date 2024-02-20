@@ -32,7 +32,7 @@ return new class extends Migration
             $table->text('komentar')->nullable();
             $table->string('surat_balasan')->nullable();
             $table->string('user_validasi_id', 100)->nullable();
-            $table->tinyInteger('is_validasi')->nullable();
+            $table->string('is_validasi', 50)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

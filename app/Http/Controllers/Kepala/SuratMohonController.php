@@ -28,6 +28,15 @@ class SuratMohonController extends Controller
         });
     }
 
+    public function unduh_file_persyaratan($id)
+    {
+        return DB::transaction(function() use ($id) {
+            $file = PermohonanSuratKetMasaBerlayar::where('id', $id)->first(); 
+
+            return response()->download("/storage/", $file['file_persyaratan']);
+        });
+    }
+
     public function update(Request $request, $id)
     {
         return DB::transaction(function () use ($request, $id) {

@@ -55,7 +55,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">File Persyaratan</label>
                         <div class="col-sm-10">
-                          <a href="" class="btn btn-primary btn-sm">
+                          <a href="{{ url('/petugas/surat_mohon/unduh/'. $detail->id . '/file-persyaratan') }}" class="btn btn-primary btn-sm">
                               <i class="fa fa-download"></i> UNDUH FILE
                           </a>
                         </div>
