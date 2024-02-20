@@ -144,7 +144,10 @@ Route::group(['middleware' => ['is_autentikasi']], function () {
             Route::get('/create', [BukuPelautController::class, 'create']);
             Route::post('/store', [BukuPelautController::class, 'store']);
             Route::get('/show/{id}', [BukuPelautController::class, 'show']);
-            Route::get('/download/{id}', [BukuPelautController::class, 'file_surat_balasan']);
+            Route::get('/download/foto/{id}', [BukuPelautController::class, 'file_foto']);
+            Route::get('/download/sertif_ahli/{id}', [BukuPelautController::class, 'file_sertif_keahlian']);
+            Route::get('/download/sertif_terampil{id}', [BukuPelautController::class, 'file_sertif_keterampilan']);
+            Route::get('/download/ktp/{id}', [BukuPelautController::class, 'file_ktp']);
 
         });
 

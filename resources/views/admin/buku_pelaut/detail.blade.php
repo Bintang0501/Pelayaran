@@ -178,22 +178,12 @@
                             @endif
                         </div>
                       </div>
-                      @if (!empty($detail->surat_balasan))
-                      
-                      @else
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Unggah Surat Balasan</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="surat_balasan" class="form-control" placeholder="Enter email">
-                        </div>
-                      </div>
                       <button type="reset" class="btn btn-danger btn-sm">
                         <i class="fa fa-times"></i> RESET
                       </button>
                       <button type="submit" class="btn btn-success btn-sm">
                         <i class="fa fa-save"></i> SIMPAN
                       </button>
-                      @endif
                     </div>
                     <!-- /.card-body -->
                   </form>

@@ -45,12 +45,4 @@ class BukuPelautController extends Controller
 
     }
 
-    public function surat_balasan($id)
-    {
-        return DB::transaction(function() use ($id){
-            $data = BukuPelaut::where('no_buku_pelaut', $id)->first();
-
-            return response()->download('storage/'.$data['surat_balasan']);
-        });
-    }
 }
